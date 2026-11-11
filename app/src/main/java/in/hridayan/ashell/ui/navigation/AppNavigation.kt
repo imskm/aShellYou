@@ -83,6 +83,7 @@ import `in`.hridayan.ashell.shell.otg_adb_shell.presentation.screens.OtgAdbScree
 import `in`.hridayan.ashell.shell.wifi_adb_shell.presentation.screens.PairingOtherDeviceScreen
 import `in`.hridayan.ashell.shell.wifi_adb_shell.presentation.screens.PairingOwnDeviceScreen
 import `in`.hridayan.ashell.shell.wifi_adb_shell.presentation.screens.WifiAdbScreen
+import `in`.hridayan.ashell.shell.dpc_installer.presentation.screens.DpcInstallerScreen
 import `in`.hridayan.ashell.ui.home.HomeRoute
 import `in`.hridayan.settingsgraph.ui.LocalSettingGraphState
 import `in`.hridayan.settingsgraph.ui.SettingGraphState
@@ -273,6 +274,10 @@ fun AppNavigation(
 
             composable<NavRoutes.WifiAdbScreen> {
                 WifiAdbScreen()
+            }
+
+            composable<NavRoutes.DpcInstallerScreen> {
+                DpcInstallerScreen()
             }
 
             composable<NavRoutes.FileBrowserScreen> { backStackEntry ->

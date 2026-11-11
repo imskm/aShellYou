@@ -349,6 +349,10 @@ fun PairingOtherDeviceScreen(
                 it.dismiss()
                 navController.navigate(NavRoutes.WifiAdbScreen())
             },
+            onGoToManageDpc = {
+                it.dismiss()
+                navController.navigate(NavRoutes.DpcInstallerScreen)
+            },
             onDismiss = {
                 it.dismiss()
                 coroutineScope.launch { pagerState.animateScrollToPage(PairingTab.SavedDevices.ordinal) }

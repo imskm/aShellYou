@@ -155,6 +155,9 @@ sealed class NavRoutes {
 
     @Serializable
     object PortForwardSettingsScreen : NavRoutes()
+
+    @Serializable
+    object DpcInstallerScreen : NavRoutes()
 }
 
 

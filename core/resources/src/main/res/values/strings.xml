@@ -786,6 +786,7 @@
     <string name="low_risk">Low risk</string>
     <string name="lower_quality" comment="Action that lowers the mirrored video's quality one step">Lower quality</string>
     <string name="make_your_theme_title" comment="Header title for custom theme builder screen">Make Your Theme</string>
+    <string name="manage_dpc" comment="Button label to open the DPC installer screen">Manage DPC</string>
     <string name="manual_pair" comment="Button label to open manual Wireless Debugging IP/Port pairing dialog">Manual Pair</string>
     <string name="material_icons" comment="Tab label in icon chooser for downloadable Material Design icons">Material Icons</string>
     <string name="material_icons_description" comment="Informational text in icon chooser explaining the Material Icons download">Download ~380 KB once to browse 2,500+ Material icons</string>

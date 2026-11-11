@@ -19,6 +19,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
+import androidx.compose.material3.FilledTonalButton
 import `in`.hridayan.ashell.core.common.domain.model.wifiadb.WifiAdbDevice
 import `in`.hridayan.ashell.core.presentation.components.haptic.withHaptic
 import `in`.hridayan.ashell.core.presentation.components.text.AutoResizeableText
@@ -29,6 +30,7 @@ fun ConnectionSuccessDialog(
     modifier: Modifier = Modifier,
     device: WifiAdbDevice?,
     onGoToTerminal: () -> Unit,
+    onGoToManageDpc: () -> Unit,
     onDismiss: () -> Unit
 ) {
     Dialog(
@@ -86,6 +88,20 @@ fun ConnectionSuccessDialog(
                 ) {
                     AutoResizeableText(
                         text = stringResource(R.string.go_to_terminal),
+                    )
+                }
+
+                Spacer(modifier = Modifier.height(8.dp))
+
+                FilledTonalButton(
+                    onClick = withHaptic(HapticFeedbackType.Confirm) {
+                        onGoToManageDpc()
+                    },
+                    shapes = ButtonDefaults.shapes(),
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    AutoResizeableText(
+                        text = stringResource(R.string.manage_dpc),
                     )
                 }
 
