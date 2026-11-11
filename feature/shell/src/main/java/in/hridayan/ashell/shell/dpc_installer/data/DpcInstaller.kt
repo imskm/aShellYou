@@ -3,13 +3,11 @@ package `in`.hridayan.ashell.shell.dpc_installer.data
 import android.content.Context
 import dagger.hilt.android.qualifiers.ApplicationContext
 import `in`.hridayan.ashell.shell.common.data.adb.AdbConnectionManager
-import io.github.muntashirakon.adb.AdbStream
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ensureActive
 import kotlinx.coroutines.withContext
 import java.io.File
-import java.io.IOException
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -47,7 +45,7 @@ class DpcInstaller @Inject constructor(
                     }
                     out.flush()
 
-                    val output = readAll(stream)
+                    val output = stream.readAllText()
                     if (output.contains("Success")) {
                         Result.success(output)
                     } else {
@@ -64,23 +62,6 @@ class DpcInstaller @Inject constructor(
                 apk.delete()
             }
         }
-
-    private fun readAll(stream: AdbStream): String {
-        val input = stream.openInputStream()
-        val text = StringBuilder()
-        val buffer = ByteArray(4096)
-        try {
-            while (true) {
-                val n = input.read(buffer)
-                if (n < 0) break
-                text.append(String(buffer, 0, n, Charsets.UTF_8))
-            }
-        } catch (e: IOException) {
-            // A closed stream is how a finished command ends; anything else is a real error.
-            if (!stream.isClosed) throw e
-        }
-        return text.toString().trim()
-    }
 
     private companion object {
         const val APK_NAME = "a1dpc.apk"
